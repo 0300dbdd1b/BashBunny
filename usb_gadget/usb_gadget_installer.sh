@@ -28,7 +28,7 @@ install() {
     cp init_usb_gadget.sh /usr/bin/ # USB gadget configFS
     chmod +x /usr/bin/init_usb_gadget
     sed -i '/^exit 0/i /usr/bin/init_usb_gadget.sh' /etc/rc.local # libcomposite configuration
-    /usr/bin/init_usb_gadget 2>/dev/null
+    /usr/bin/init_usb_gadget.sh 2>/dev/null
 }
 
 
