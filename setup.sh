@@ -22,8 +22,8 @@ echo 0x0200 > bcdUSB
 mkdir -p strings/0x409
 
 echo "fedcba9876543210" > strings/0x409/serialnumber
-echo "Turing Industries" > strings/0x409/manufacturer
-echo "PiZero Gadget" > strings/0x409/product
+echo "Ruvik" > strings/0x409/manufacturer
+echo "BashBunny" > strings/0x409/product
 
 # Function instance
 mkdir -p functions/hid.usb0
