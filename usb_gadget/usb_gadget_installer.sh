@@ -26,7 +26,7 @@ install() {
     echo "dwc2" | sudo tee -a /etc/modules # loat at boot
     echo "libcomposite" | sudo tee -a /etc/modules
     cp init_usb_gadget.sh /usr/bin/ # USB gadget configFS
-    chmod +x /usr/bin/init_usb_gadget
+    chmod +x /usr/bin/init_usb_gadget.sh
     sed -i '/^exit 0/i /usr/bin/init_usb_gadget.sh' /etc/rc.local # libcomposite configuration
     /usr/bin/init_usb_gadget.sh 2>/dev/null
 }
