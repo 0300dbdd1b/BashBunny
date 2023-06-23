@@ -59,5 +59,3 @@ class Keyboard:
                 self.inject_keystroke('ENTER')
             elif char in self.keymap:
                 self.inject_keystroke(char)
-            else:
-                print("Unknown Keymap")
