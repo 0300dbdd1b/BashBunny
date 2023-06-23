@@ -50,18 +50,19 @@ class CarrotInterpreter:
 				for line in f.read().splitlines():
 					if self.__execute_line__(line) == False:
 						return False
+					return True
 
 if __name__ == "__main__":
 	if len(sys.argv) != 2:
-		print("Usage: python3 CarrotInterpreter.py <script_path>")
+		print("Usage: python3 Interpreter.py <script_path>")
 		exit
 
 	script_path = sys.argv[1]
-	keyboard = Keyboard("keymap.json")  # replace with your keymap file
+	keyboard = Keyboard(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'HID', 'keymaps', 'EN.json'))  # replace with your keymap file
 	mouse = Mouse()
 	interpreter = CarrotInterpreter(keyboard, mouse)
 
 	if not interpreter.execute(script_path):
 		print("Script execution failed.")
-		exit
-	print("Script executed successfully.")
+	else:
+		print("Script executed successfully.")

@@ -1,4 +1,4 @@
-from srcs.Keyboard import Keyboard
+from srcs.HID.Keyboard import Keyboard
 
-k = Keyboard('./srcs/keymaps/EN.json')
+k = Keyboard('./srcs/HID/keymaps/EN.json')
 k.write("Hello World")
