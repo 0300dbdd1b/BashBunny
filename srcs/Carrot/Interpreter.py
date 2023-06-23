@@ -1,8 +1,10 @@
-from HID.Keyboard import Keyboard
-from HID.Mouse import Mouse
 import time
 import sys
+import os
 
+sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
+from HID.Mouse import Mouse
+from HID.Keyboard import Keyboard
 
 class CarrotInterpreter:
 	def __init__(self, keyboard, mouse):
@@ -11,7 +13,8 @@ class CarrotInterpreter:
 		self.commands = {
 			'STRING': self.__type_string__,
 			'DELAY': self.__delay__,
-			'REM': self.__rem__
+			'REM': self.__rem__,
+			'ENTER': self.__enter__
 		}
 
 	def __type_string__(self, params):
@@ -23,6 +26,10 @@ class CarrotInterpreter:
 		return True
 	
 	def __rem__(self, params):
+		return True
+	
+	def __enter__(self, params):
+		self.keyboard.write('\n')
 		return True
 	
 	def __execute_line__(self, line):
