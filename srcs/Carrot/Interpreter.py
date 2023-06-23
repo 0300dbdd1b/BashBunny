@@ -50,7 +50,7 @@ class CarrotInterpreter:
 				for line in f.read().splitlines():
 					if self.__execute_line__(line) == False:
 						return False
-					return True
+				return True
 
 if __name__ == "__main__":
 	if len(sys.argv) != 2:
