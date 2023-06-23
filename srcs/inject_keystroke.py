@@ -44,6 +44,9 @@ def inject_keystroke(filepath, keystroke):
             report[2] = int(keycode, 16)
 
     write_report(report)
+    # Release keys
+    report = bytearray([0] * 8)
+    write_report(report)
 
 # Example usage
 inject_keystroke('json.txt', 'CTRL+ALT+DELETE')
