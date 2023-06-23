@@ -1,12 +1,10 @@
 class Mouse:
 	def __init__(self):
-		self.fd = open('/dev/hidg1', 'wb')
-	
-	def __del__(self):
-		self.fd.close()
+		return
 
 	def write_report(self, report):
-		self.fd.write(report)
+		with open('/dev/hidg1', 'wb') as fd:
+			fd.write(report)
 
 	def move(self, x, y):
 		# Check that values are in valid range

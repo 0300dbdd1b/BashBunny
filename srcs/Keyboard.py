@@ -13,11 +13,7 @@ MODIFIERS = {
 
 class Keyboard:
 	def __init__(self, json_filepath):
-		self.fd = open('/dev/hidg0', 'wb')
 		self.load_keymap(json_filepath)
-	
-	def __del__(self):
-		self.fd.close()
 	
 	def load_keymap(self, filepath):
 		with open(filepath, 'r') as file:
@@ -25,7 +21,8 @@ class Keyboard:
 		return self.keymap
 	
 	def write_report(self, report):
-		self.fd.write(report)
+		with open('/dev/hidg0', 'wb') as fd:
+			fd.write(report)
 	
 	def inject_keystroke(self, keystroke):
 		keymap = self.keymap
