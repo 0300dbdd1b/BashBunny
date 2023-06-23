@@ -34,7 +34,7 @@ class Keyboard:
 			report = bytearray([0] * 8)
 			for modifier in modifiers:
 				if modifier != "NONE":
-					report[MODIFIERS.get(modifier, 0)] |= MODIFIERS.get(modifier, 0)
+					report[0] |= MODIFIERS.get(modifier, 0)
 			report[2] = int(keycode, 16)
 			self.write_report(report)
 			# Release keys

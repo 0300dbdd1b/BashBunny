@@ -395,6 +395,142 @@
 	  "modifiers": ["NONE"],
 	  "keycode": "0x45"
 	},
+	"?": {
+		  "modifiers": ["NONE"],
+		  "keycode": "0x2D"
+		},
+	".": {
+		  "modifiers": ["NONE"],
+		  "keycode": "0x37"
+		},
+	",": {
+		  "modifiers": ["NONE"],
+		  "keycode": "0x36"
+		},
+	"<": {
+		  "modifiers": ["SHIFT"],
+		  "keycode": "0x36"
+		},
+	"'": {
+		  "modifiers": ["NONE"],
+		  "keycode": "0x34"
+		},
+	"`": {
+		  "modifiers": ["NONE"],
+		  "keycode": "0x35"
+		},
+	"!": {
+		  "modifiers": ["SHIFT"],
+		  "keycode": "0x1E"
+		},
+	"@": {
+		  "modifiers": ["SHIFT"],
+		  "keycode": "0x1F"
+		},
+	"#": {
+		  "modifiers": ["SHIFT"],
+		  "keycode": "0x20"
+		},
+	"$": {
+		  "modifiers": ["SHIFT"],
+		  "keycode": "0x21"
+		},
+	"%": {
+		  "modifiers": ["SHIFT"],
+		  "keycode": "0x22"
+		},
+	"^": {
+		  "modifiers": ["SHIFT"],
+		  "keycode": "0x23"
+		},
+	"&": {
+		  "modifiers": ["SHIFT"],
+		  "keycode": "0x24"
+		},
+	"*": {
+		  "modifiers": ["SHIFT"],
+		  "keycode": "0x25"
+		},
+	"(": {
+		  "modifiers": ["SHIFT"],
+		  "keycode": "0x26"
+		},
+	")": {
+		  "modifiers": ["SHIFT"],
+		  "keycode": "0x27"
+		},
+	"_": {
+		  "modifiers": ["SHIFT"],
+		  "keycode": "0x2D"
+		},
+	"+": {
+		  "modifiers": ["SHIFT"],
+		  "keycode": "0x2E"
+		},
+	"-": {
+		  "modifiers": ["NONE"],
+		  "keycode": "0x2D"
+		},
+	"=": {
+		  "modifiers": ["NONE"],
+		  "keycode": "0x2E"
+		},
+	"[": {
+		  "modifiers": ["NONE"],
+		  "keycode": "0x2F"
+		},
+	"]": {
+		  "modifiers": ["NONE"],
+		  "keycode": "0x30"
+		},
+	"{": {
+		  "modifiers": ["SHIFT"],
+		  "keycode": "0x2F"
+		},
+	"}": {
+		  "modifiers": ["SHIFT"],
+		  "keycode": "0x30"
+		},
+	"\\": {
+		  "modifiers": ["NONE"],
+		  "keycode": "0x31"
+		},
+	"|": {
+		  "modifiers": ["SHIFT"],
+		  "keycode": "0x31"
+		},
+	";": {
+		  "modifiers": ["NONE"],
+		  "keycode": "0x33"
+		},
+	":": {
+		  "modifiers": ["SHIFT"],
+		  "keycode": "0x33"
+		},
+	"\"": {
+		  "modifiers": ["NONE"],
+		  "keycode": "0x34"
+		},
+	"\\t": {
+		  "modifiers": ["NONE"],
+		  "keycode": "0x2B"
+	},
+	"\\n": {
+		  "modifiers": ["NONE"],
+		  "keycode": "0x28"
+	},
+	" ": {
+		  "modifiers": ["NONE"],
+		  "keycode": "0x2C"
+	},
+	"~": {
+		  "modifiers": ["SHIFT"],
+		  "keycode": "0x35"
+		},
+	"ALT+TAB": {
+		"modifiers": ["ALT"],
+		"keycode": "0x2B"
+	},
 	"CTRL+C": {
 		"modifiers": ["CTRL"],
 		"keycode": "0x06"
