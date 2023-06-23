@@ -53,5 +53,11 @@ class Keyboard:
     
     def write(self, string):
         for char in string:
-            if char in self.keymap:
+            if char == '\t':
+                self.inject_keystroke('TAB')
+            elif char == '\n':
+                self.inject_keystroke('ENTER')
+            elif char in self.keymap:
                 self.inject_keystroke(char)
+            else:
+                print("Unknown Keymap")
