@@ -130,8 +130,7 @@ echo 1 > "${STORAGE_FUNCTIONS_DIR}/stall"
 echo 0 > "${STORAGE_FUNCTIONS_DIR}/lun.0/cdrom"
 echo 0 > "${STORAGE_FUNCTIONS_DIR}/lun.0/ro"
 echo 0 > "${STORAGE_FUNCTIONS_DIR}/lun.0/nofua"
-echo "/dev/sda" > "${STORAGE_FUNCTIONS_DIR}/lun.0/file"
-
+echo "/dev/mmcblk0" > "${STORAGE_FUNCTIONS_DIR}/lun.0/file"
 
 CONFIG_INDEX=1
 CONFIGS_DIR="configs/c.${CONFIG_INDEX}"
