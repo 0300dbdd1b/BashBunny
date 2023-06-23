@@ -1,399 +1,412 @@
 {
 	"a": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x04"
 	},
 	"b": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x05"
 	},
 	"c": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x06"
 	},
 	"d": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x07"
 	},
 	"e": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x08"
 	},
 	"f": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x09"
 	},
 	"g": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x0A"
 	},
 	"h": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x0B"
 	},
 	"i": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x0C"
 	},
 	"j": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x0D"
 	},
 	"k": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x0E"
 	},
 	"l": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x0F"
 	},
 	"m": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x10"
 	},
 	"n": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x11"
 	},
 	"o": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x12"
 	},
 	"p": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x13"
 	},
 	"q": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x14"
 	},
 	"r": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x15"
 	},
 	"s": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x16"
 	},
 	"t": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x17"
 	},
 	"u": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x18"
 	},
 	"v": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x19"
 	},
 	"w": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x1A"
 	},
 	"x": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x1B"
 	},
 	"y": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x1C"
 	},
 	"z": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x1D"
 	},
 	"A": {
-	  "modifier": "SHIFT",
+	  "modifiers": ["SHIFT"],
 	  "keycode": "0x04"
 	},
 	"B": {
-	  "modifier": "SHIFT",
+	  "modifiers": ["SHIFT"],
 	  "keycode": "0x05"
 	},
 	"C": {
-	  "modifier": "SHIFT",
+	  "modifiers": ["SHIFT"],
 	  "keycode": "0x06"
 	},
 	"D": {
-	  "modifier": "SHIFT",
+	  "modifiers": ["SHIFT"],
 	  "keycode": "0x07"
 	},
 	"E": {
-	  "modifier": "SHIFT",
+	  "modifiers": ["SHIFT"],
 	  "keycode": "0x08"
 	},
 	"F": {
-	  "modifier": "SHIFT",
+	  "modifiers": ["SHIFT"],
 	  "keycode": "0x09"
 	},
 	"G": {
-	  "modifier": "SHIFT",
+	  "modifiers": ["SHIFT"],
 	  "keycode": "0x0A"
 	},
 	"H": {
-	  "modifier": "SHIFT",
+	  "modifiers": ["SHIFT"],
 	  "keycode": "0x0B"
 	},
 	"I": {
-	  "modifier": "SHIFT",
+	  "modifiers": ["SHIFT"],
 	  "keycode": "0x0C"
 	},
 	"J": {
-	  "modifier": "SHIFT",
+	  "modifiers": ["SHIFT"],
 	  "keycode": "0x0D"
 	},
 	"K": {
-	  "modifier": "SHIFT",
+	  "modifiers": ["SHIFT"],
 	  "keycode": "0x0E"
 	},
 	"L": {
-	  "modifier": "SHIFT",
+	  "modifiers": ["SHIFT"],
 	  "keycode": "0x0F"
 	},
 	"M": {
-	  "modifier": "SHIFT",
+	  "modifiers": ["SHIFT"],
 	  "keycode": "0x10"
 	},
 	"N": {
-	  "modifier": "SHIFT",
+	  "modifiers": ["SHIFT"],
 	  "keycode": "0x11"
 	},
 	"O": {
-	  "modifier": "SHIFT",
+	  "modifiers": ["SHIFT"],
 	  "keycode": "0x12"
 	},
 	"P": {
-	  "modifier": "SHIFT",
+	  "modifiers": ["SHIFT"],
 	  "keycode": "0x13"
 	},
 	"Q": {
-	  "modifier": "SHIFT",
+	  "modifiers": ["SHIFT"],
 	  "keycode": "0x14"
 	},
 	"R": {
-	  "modifier": "SHIFT",
+	  "modifiers": ["SHIFT"],
 	  "keycode": "0x15"
 	},
 	"S": {
-	  "modifier": "SHIFT",
+	  "modifiers": ["SHIFT"],
 	  "keycode": "0x16"
 	},
 	"T": {
-	  "modifier": "SHIFT",
+	  "modifiers": ["SHIFT"],
 	  "keycode": "0x17"
 	},
 	"U": {
-	  "modifier": "SHIFT",
+	  "modifiers": ["SHIFT"],
 	  "keycode": "0x18"
 	},
 	"V": {
-	  "modifier": "SHIFT",
+	  "modifiers": ["SHIFT"],
 	  "keycode": "0x19"
 	},
 	"W": {
-	  "modifier": "SHIFT",
+	  "modifiers": ["SHIFT"],
 	  "keycode": "0x1A"
 	},
 	"X": {
-	  "modifier": "SHIFT",
+	  "modifiers": ["SHIFT"],
 	  "keycode": "0x1B"
 	},
 	"Y": {
-	  "modifier": "SHIFT",
+	  "modifiers": ["SHIFT"],
 	  "keycode": "0x1C"
 	},
 	"Z": {
-	  "modifier": "SHIFT",
+	  "modifiers": ["SHIFT"],
 	  "keycode": "0x1D"
 	},
 	"0": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x27"
 	},
 	"1": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x1E"
 	},
 	"2": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x1F"
 	},
 	"3": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x20"
 	},
 	"4": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x21"
 	},
 	"5": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x22"
 	},
 	"6": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x23"
 	},
 	"7": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x24"
 	},
 	"8": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x25"
 	},
 	"9": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x26"
 	},
 	"SPACE": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x2C"
 	},
 	"ENTER": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x28"
 	},
 	"TAB": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x2B"
 	},
 	"BACKSPACE": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x2A"
 	},
 	"ESC": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x29"
 	},
 	"CAPSLOCK": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x39"
 	},
 	"LEFTSHIFT": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x02"
 	},
 	"LEFTCTRL": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x01"
 	},
 	"LEFTALT": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x04"
 	},
 	"LEFTMETA": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x08"
 	},
 	"RIGHTSHIFT": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x20"
 	},
 	"RIGHTCTRL": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x10"
 	},
 	"RIGHTALT": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x40"
 	},
 	"RIGHTMETA": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x80"
 	},
 	"MINUS": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x2D"
 	},
 	"EQUALS": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x2E"
 	},
 	"LEFTBRACKET": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x2F"
 	},
 	"RIGHTBRACKET": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x30"
 	},
 	"BACKSLASH": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x31"
 	},
 	"SEMICOLON": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x33"
 	},
 	"APOSTROPHE": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x34"
 	},
 	"GRAVE": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x35"
 	},
 	"COMMA": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x36"
 	},
 	"PERIOD": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x37"
 	},
 	"SLASH": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x38"
 	},
 	"F1": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x3A"
 	},
 	"F2": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x3B"
 	},
 	"F3": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x3C"
 	},
 	"F4": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x3D"
 	},
 	"F5": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x3E"
 	},
 	"F6": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x3F"
 	},
 	"F7": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x40"
 	},
 	"F8": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x41"
 	},
 	"F9": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x42"
 	},
 	"F10": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x43"
 	},
 	"F11": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x44"
 	},
 	"F12": {
-	  "modifier": "NONE",
+	  "modifiers": ["NONE"],
 	  "keycode": "0x45"
+	},
+	"CTRL+C": {
+		"modifiers": ["CTRL"],
+		"keycode": "0x06"
+	},
+	"GUI+R": {
+		"modifiers": ["META"],
+		"keycode": "0x15"
+	},
+	"CTRL+ALT+DELETE": {
+		"modifiers": ["CTRL", "ALT", "DELETE"],
+		"keycode": "0x00"
 	}
+
   }
   
