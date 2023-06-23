@@ -123,6 +123,16 @@ echo -ne \\xC0           # END_COLLECTION
 } >> "$D"
 cp "$D" "${MOUSE_FUNCTIONS_DIR}/report_desc"
 
+# Mass Storage
+STORAGE_FUNCTIONS_DIR="functions/mass_storage.0"
+mkdir -p "$STORAGE_FUNCTIONS_DIR"
+echo 1 > "${STORAGE_FUNCTIONS_DIR}/stall"
+echo 0 > "${STORAGE_FUNCTIONS_DIR}/lun.0/cdrom"
+echo 0 > "${STORAGE_FUNCTIONS_DIR}/lun.0/ro"
+echo 0 > "${STORAGE_FUNCTIONS_DIR}/lun.0/nofua"
+echo "/dev/sda" > "${STORAGE_FUNCTIONS_DIR}/lun.0/file"
+
+
 CONFIG_INDEX=1
 CONFIGS_DIR="configs/c.${CONFIG_INDEX}"
 mkdir -p "$CONFIGS_DIR"
@@ -134,7 +144,10 @@ echo "Config ${CONFIG_INDEX}: ECM network" > "${CONFIGS_STRINGS_DIR}/configurati
 
 ln -s "$KEYBOARD_FUNCTIONS_DIR" "${CONFIGS_DIR}/"
 ln -s "$MOUSE_FUNCTIONS_DIR" "${CONFIGS_DIR}/"
+ln -s "$STORAGE_FUNCTIONS_DIR" "${CONFIGS_DIR}/"
+
 ls /sys/class/udc > UDC
 
 chmod 777 /dev/hidg0
 chmod 777 /dev/hidg1
+chmod 777 /dev/sda
