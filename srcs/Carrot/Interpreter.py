@@ -1,5 +1,5 @@
-from ..Keyboard import Keyboard
-from ..Mouse import Mouse
+from HID.Keyboard import Keyboard
+from HID.Mouse import Mouse
 import time
 import sys
 
