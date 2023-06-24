@@ -1,0 +1,5 @@
+REM This script will open powershell on windows
+WINDOWS R
+STRING powershell
+ENTER
+

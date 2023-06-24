@@ -1,0 +1,29 @@
+DELAY 500
+
+REM Open web browser
+WINDOWS r
+DELAY 500
+STRING "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+ENTER
+
+REM Wait for the video to load and play
+DELAY 5000
+
+REM Maximize the browser window (adjust delay if necessary)
+ALT SPACE
+DELAY 200
+STRING x
+DELAY 200
+
+REM Put the video in fullscreen (adjust delay if necessary)
+ALT SPACE
+DELAY 200
+STRING x
+DELAY 200
+
+REM Wait for the video to finish playing (adjust delay if necessary)
+DELAY 60000
+
+REM Close the web browser
+ALT F4
+

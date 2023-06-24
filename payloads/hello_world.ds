@@ -1,0 +1,5 @@
+REM This is a basic Hello World
+DELAY 1000
+STRING Hello, World!
+ENTER
+
