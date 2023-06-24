@@ -15,13 +15,8 @@ class CarrotInterpreter:
 			'DELAY': self.__delay__,
 			'REM': self.__rem__,
 			'//': self.__rem__,
-			'ENTER': self.__enter__,
-			'SPACE': self.__space__,
-			'CTRL': self.__ctrl__,
-			'WINDOWS': self.__gui__,
-			'COMMAND': self.__gui__
 		}
-
+		self.special_keys = ['ENTER', 'SPACE', 'CTRL', 'ALT', 'SHIFT', 'WINDOWS', 'COMMAND', 'ESC', 'F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7', 'F8', 'F9', 'F10', 'F11', 'F12']
 	def __type_string__(self, params):
 		return self.keyboard.write(' '.join(params))
 			
@@ -31,24 +26,18 @@ class CarrotInterpreter:
 	
 	def __rem__(self, params):
 		return True
-	
-	def __enter__(self, params):
-		return self.keyboard.inject_keystroke('ENTER')
-	
-	def __space__(self, params):
-		return self.keyboard.inject_keystroke('SPACE')
-	
-	def __ctrl__(self, params):
-		if not params[0]:
-			return self.keyboard.inject_keystroke('CTRL')
-		else:
-			return self.keyboard.inject_custom_keystroke('CTRL', params[0])
 
-	def __gui__(self, params):
-		if not params[0]:
-			return self.keyboard.inject_keystroke('META')
+	def __handle_special_keys__(self, command, params):
+		if command == 'WINDOWS' or command == 'COMMAND':
+			if params[0]:
+				return self.keyboard.inject_custom_keystroke('GUI', params[0])
+			else:
+				return self.keyboard.inject_keystroke('GUI')
 		else:
-			return self.keyboard.inject_custom_keystroke('META', params[0])
+			if params[0]:
+				return self.keyboard.inject_custom_keystroke(command, params[0])
+			else:
+				return self.keyboard.inject_keystroke(command)
 
 	def __execute_line__(self, line):
 		parts = line.split()
@@ -61,6 +50,11 @@ class CarrotInterpreter:
 				else:
 					print(f"Can't process line : {line}")
 					return False
+			elif command in self.special_keys:
+				if self.__handle_special_keys__(command, params):
+					return True
+				else:
+					print(f"Can't process line : {line}")
 			else:
 				print(f"Unknown command : {command}")
 		else:
