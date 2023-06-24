@@ -42,13 +42,13 @@ class CarrotInterpreter:
 		if not params[0]:
 			return self.keyboard.inject_keystroke('CTRL')
 		else:
-			return self.keyboard.inject_keystroke('CTRL', params[0])
+			return self.keyboard.inject_custom_keystroke('CTRL', params[0])
 
 	def __gui__(self, params):
 		if not params[0]:
 			return self.keyboard.inject_keystroke('META')
 		else:
-			return self.keyboard.inject_keystroke('META', params[0])
+			return self.keyboard.inject_custom_keystroke('META', params[0])
 
 	def __execute_line__(self, line):
 		parts = line.split()

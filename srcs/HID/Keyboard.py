@@ -43,7 +43,7 @@ class Keyboard:
 			return True
 		return False
 
-	def inject_keystroke(self, modifier, keystroke):
+	def inject_custom_keystroke(self, modifier, keystroke):
 		keymap = self.keymap
 		if keystroke in keymap:
 			keycode = keymap[keystroke]['keycode']
