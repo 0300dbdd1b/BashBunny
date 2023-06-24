@@ -14,13 +14,17 @@ class CarrotInterpreter:
 			'STRING': self.__type_string__,
 			'DELAY': self.__delay__,
 			'REM': self.__rem__,
-			'ENTER': self.__enter__
+			'//': self.__rem__,
+			'ENTER': self.__enter__,
+			'SPACE': self.__space__,
+			'CTRL': self.__ctrl__,
+			'WINDOWS': self.__gui__,
+			'COMMAND': self.__gui__
 		}
 
 	def __type_string__(self, params):
-		self.keyboard.write(''.join(params))
-		return True
-	
+		return self.keyboard.write(''.join(params))
+			
 	def __delay__(self, params):
 		time.sleep(int(params[0])/1000)
 		return True
@@ -29,9 +33,23 @@ class CarrotInterpreter:
 		return True
 	
 	def __enter__(self, params):
-		self.keyboard.write('\n')
-		return True
+		return self.keyboard.inject_keystroke('ENTER')
 	
+	def __space__(self, params):
+		return self.keyboard.inject_keystroke('SPACE')
+	
+	def __ctrl__(self, params):
+		if not params[0]:
+			return self.keyboard.inject_keystroke('CTRL')
+		else:
+			return self.keyboard.inject_keystroke('CTRL', params[0])
+
+	def __gui__(self, params):
+		if not params[0]:
+			return self.keyboard.inject_keystroke('META')
+		else:
+			return self.keyboard.inject_keystroke('META', params[0])
+
 	def __execute_line__(self, line):
 		parts = line.split()
 		command = parts[0]

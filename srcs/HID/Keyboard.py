@@ -40,15 +40,33 @@ class Keyboard:
 			# Release keys
 			report = bytearray([0] * 8)
 			self.write_report(report)
+			return True
+		return False
+
+	def inject_keystroke(self, modifier, keystroke):
+		keymap = self.keymap
+		if keystroke in keymap:
+			keycode = keymap[keystroke]['keycode']
+
+			report = bytearray([0] * 8)
+			if modifier != "NONE":
+				report[0] |= MODIFIERS.get(modifier, 0)
+			report[2] = int(keycode, 16)
+			self.write_report(report)
+			# Release keys
+			report = bytearray([0] * 8)
+			self.write_report(report)
+			return True
+		return False
 	
 	def write(self, string):
 		for char in string:
 			if char == '\t':
-				self.inject_keystroke('TAB')
+				return self.inject_keystroke('TAB')
 			elif char == '\n':
-				self.inject_keystroke('ENTER')
+				return self.inject_keystroke('ENTER')
 			elif char == ' ':
-				self.inject_keystroke('SPACE')
+				return self.inject_keystroke('SPACE')
 			elif char in self.keymap:
-				self.inject_keystroke(char)
+				return self.inject_keystroke(char)
 
