@@ -396,8 +396,8 @@
 	  "keycode": "0x45"
 	},
 	"?": {
-		  "modifiers": ["NONE"],
-		  "keycode": "0x2D"
+		  "modifiers": ["SHIFT"],
+		  "keycode": "0x38"
 		},
 	".": {
 		  "modifiers": ["NONE"],
