@@ -11,7 +11,7 @@ sudo apt-get install -y git &&
 sudo git clone https://github.com/Marcaday/BashBunny &&
 cd BashBunny &&
 sudo chmod +x ./setup.sh &&
-sudo ./setup.sh &&
+sudo ./setup.sh 
 ```
 Once the usb gadget set you can now  use the python script to inject keystrokes
 ```bash
