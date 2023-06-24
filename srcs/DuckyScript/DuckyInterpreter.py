@@ -87,7 +87,6 @@ if __name__ == "__main__":
 			line = input(">> ")
 			if line == 'EXIT':
 				break
-			if interpreter.__execute_line__(line) == False:
-				print("Script execution failed.")
-				break
+			interpreter.__execute_line__(line)
+
 
