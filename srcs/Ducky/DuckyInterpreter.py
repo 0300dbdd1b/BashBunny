@@ -6,7 +6,7 @@ sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
 from HID.Mouse import Mouse
 from HID.Keyboard import Keyboard
 
-class CarrotInterpreter:
+class DuckyInterpreter:
 	def __init__(self, keyboard, mouse):
 		self.mouse = mouse
 		self.keyboard = keyboard
@@ -75,7 +75,7 @@ if __name__ == "__main__":
 	script_path = sys.argv[1]
 	keyboard = Keyboard(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'HID', 'keymaps', 'EN.json'))  # replace with your keymap file
 	mouse = Mouse()
-	interpreter = CarrotInterpreter(keyboard, mouse)
+	interpreter = DuckyInterpreter(keyboard, mouse)
 
 	if not interpreter.execute(script_path):
 		print("Script execution failed.")
