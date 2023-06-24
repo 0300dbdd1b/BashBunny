@@ -66,7 +66,7 @@ class Keyboard:
 			elif char == '\n':
 				self.inject_keystroke('ENTER')
 			elif char == ' ':
-				return self.inject_keystroke('SPACE')
+				self.inject_keystroke('SPACE')
 			elif char in self.keymap:
 				self.inject_keystroke(char)
 		return True

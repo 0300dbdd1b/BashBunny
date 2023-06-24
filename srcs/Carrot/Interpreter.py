@@ -23,7 +23,7 @@ class CarrotInterpreter:
 		}
 
 	def __type_string__(self, params):
-		return self.keyboard.write(''.join(params))
+		return self.keyboard.write(' '.join(params))
 			
 	def __delay__(self, params):
 		time.sleep(int(params[0])/1000)
