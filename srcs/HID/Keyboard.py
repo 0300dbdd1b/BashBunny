@@ -62,11 +62,12 @@ class Keyboard:
 	def write(self, string):
 		for char in string:
 			if char == '\t':
-				return self.inject_keystroke('TAB')
+				self.inject_keystroke('TAB')
 			elif char == '\n':
-				return self.inject_keystroke('ENTER')
+				self.inject_keystroke('ENTER')
 			elif char == ' ':
 				return self.inject_keystroke('SPACE')
 			elif char in self.keymap:
-				return self.inject_keystroke(char)
+				self.inject_keystroke(char)
+		return True
 
