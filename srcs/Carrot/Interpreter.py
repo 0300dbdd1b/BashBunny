@@ -29,12 +29,12 @@ class CarrotInterpreter:
 
 	def __handle_special_keys__(self, command, params):
 		if command == 'WINDOWS' or command == 'COMMAND':
-			if params[0]:
+			if params:
 				return self.keyboard.inject_custom_keystroke('GUI', params[0])
 			else:
 				return self.keyboard.inject_keystroke('GUI')
 		else:
-			if params[0]:
+			if params:
 				return self.keyboard.inject_custom_keystroke(command, params[0])
 			else:
 				return self.keyboard.inject_keystroke(command)
