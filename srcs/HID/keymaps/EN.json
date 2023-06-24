@@ -527,6 +527,10 @@
 		  "modifiers": ["SHIFT"],
 		  "keycode": "0x35"
 		},
+	"/": {
+		  "modifiers": ["NONE"],
+		  "keycode": "0x38"
+	},
 	"ALT+TAB": {
 		"modifiers": ["ALT"],
 		"keycode": "0x2B"
