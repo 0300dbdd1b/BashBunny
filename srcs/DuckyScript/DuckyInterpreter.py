@@ -16,7 +16,7 @@ class DuckyInterpreter:
 			'REM': self.__rem__,
 			'//': self.__rem__,
 		}
-		self.special_keys = ['ENTER', 'SPACE', 'CTRL', 'ALT', 'SHIFT', 'WINDOWS', 'COMMAND', 'ESC', 'F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7', 'F8', 'F9', 'F10', 'F11', 'F12']
+		self.special_keys = ['ENTER', 'SPACE', 'CTRL', 'ALT', 'TAB','SHIFT', 'WINDOWS', 'COMMAND', 'ESC', 'F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7', 'F8', 'F9', 'F10', 'F11', 'F12']
 	def __type_string__(self, params):
 		return self.keyboard.write(' '.join(params))
 			
