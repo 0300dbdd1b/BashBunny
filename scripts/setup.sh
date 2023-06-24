@@ -27,8 +27,8 @@ fi
 # Check if USB gadget is set, if not, launch the installer
 if [ ! -f "/usr/bin/init_usb_gadget.sh" ]; then
     echo "USB gadget is not set. Launching the installer..."
-    sudo chmod +x ./usb_gadget_installer.sh
-    sudo ./usb_gadget_installer.sh
+    sudo chmod +x /home/BashBunny/scripts/usb_gadget/usb_gadget_installer.sh
+    sudo /home/BashBunny/scripts/usb_gadget/usb_gadget_installer.sh
 else
     echo "USB gadget is already set."
 fi
