@@ -55,8 +55,10 @@ class DuckyInterpreter:
 					return True
 				else:
 					print(f"Can't process line : {line}")
+					return False
 			else:
 				print(f"Unknown command : {command}")
+				return False
 		else:
 			return True
 
@@ -68,16 +70,24 @@ class DuckyInterpreter:
 				return True
 
 if __name__ == "__main__":
-	if len(sys.argv) != 2:
-		print("Usage: python3 Interpreter.py <script_path>")
-		exit
-
-	script_path = sys.argv[1]
-	keyboard = Keyboard(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'HID', 'keymaps', 'EN.json'))  # replace with your keymap file
-	mouse = Mouse()
-	interpreter = DuckyInterpreter(keyboard, mouse)
-
-	if not interpreter.execute(script_path):
-		print("Script execution failed.")
+	if len(sys.argv) == 2:
+		script_path = sys.argv[1]
+		keyboard = Keyboard(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'HID', 'keymaps', 'EN.json'))  # replace with your keymap file
+		mouse = Mouse()
+		interpreter = DuckyInterpreter(keyboard, mouse)
+		if not interpreter.execute(script_path):
+			print("Script execution failed.")
+		else:
+			print("Script executed successfully.")
 	else:
-		print("Script executed successfully.")
+		keyboard = Keyboard(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'HID', 'keymaps', 'EN.json'))  # replace with your keymap file
+		mouse = Mouse()
+		interpreter = DuckyInterpreter(keyboard, mouse)
+		while True:
+			line = input(">> ")
+			if line == 'EXIT':
+				break
+			if interpreter.__execute_line__(line) == False:
+				print("Script execution failed.")
+				break
+
