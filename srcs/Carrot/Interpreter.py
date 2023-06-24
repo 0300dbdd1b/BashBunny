@@ -52,17 +52,20 @@ class CarrotInterpreter:
 
 	def __execute_line__(self, line):
 		parts = line.split()
-		command = parts[0]
-		params = parts[1:]
-		if command in self.commands:
-			if self.commands[command](params):
-				return True
+		if parts:
+			command = parts[0]
+			params = parts[1:]
+			if command in self.commands:
+				if self.commands[command](params):
+					return True
+				else:
+					print(f"Can't process line : {line}")
+					return False
 			else:
-				print(f"Can't process line : {line}")
-				return False
+				print(f"Unknown command : {command}")
 		else:
-			print(f"Unknown command : {command}")
-	
+			return True
+
 	def execute(self, script_path):
 			with open(script_path, 'r') as f:
 				for line in f.read().splitlines():
