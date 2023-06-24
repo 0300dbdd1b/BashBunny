@@ -7,11 +7,12 @@ A PiZero BashBunny (Work In Progress)
 Install the prerequisites with curl (note: Installing with cu
 
 ```bash
+cd /home &&
 sudo apt-get install -y git &&
 sudo git clone https://github.com/Marcaday/BashBunny &&
 cd BashBunny &&
-sudo chmod +x ./setup.sh &&
-sudo ./setup.sh 
+sudo chmod +x ./scripts/setup.sh &&
+sudo ./scripts/setup.sh 
 ```
 Once the usb gadget set you can now  use the python script to inject keystrokes
 ```bash
