@@ -7,14 +7,16 @@ A PiZero BashBunny (Work In Progress)
 Install the prerequisites
 
 ```bash
-  sudo apt install -y git 
-  sudo apt install -y python3-pip
-  git clone https://github.com/Marcaday/BashBunny.githu
-  cd BashBunny/usb_gadget
-  chmod +x usb_gadget_installer.sh
-  sudo ./usb_gadget_installer.sh
+sudo curl -LOk https://github.com/Marcaday/BashBunny/archive/master.zip && 
+sudo unzip master.zip -d BashBunnyFolder && 
+sudo rm -rf master.zip && 
+sudo mv BashBunnyFolder/BashBunny-main ./BashBunny &&
+sudo rm -rf BashBunnyFolder &&
+cd ./BashBunny &&
+sudo chmod +x ./setup.sh &&
+sudo ./setup.sh
 ```
 Once the usb gadget set you can now  use the python script to inject keystrokes
 ```bash
-    python3 test.py
+    python3 srcs/DuckyScript/DuckyInterpreter.py ./payloads/hello_world.ds
 ```
