@@ -1,6 +1,6 @@
 #!/bin/bash
 
-USERNAME=$(whoami)
+USERNAME=$(who | grep -o '^[[:alnum:]]\+' | head -1)
 
 # Check if the script is run with sudo
 if [ "$EUID" -ne 0 ]; then
@@ -49,6 +49,6 @@ fi
 
 # Check if the alias DUCKY exists, if not, create it. 
 if ! grep -q "alias DUCKY" /home/$SUDO_USER/.bashrc ; then
-    echo "alias DUCKY='/home/BashBunny/srcs/DuckyScript/DuckyInterpreter.py'" >> /home/$SUDO_USER/.bashrc
+    echo "alias DUCKY='/home/BashBunny/srcs/DuckyScript/DuckyInterpreter.py' " >> /home/$SUDO_USER/.bashrc
     source ~/.bashrc
 fi
