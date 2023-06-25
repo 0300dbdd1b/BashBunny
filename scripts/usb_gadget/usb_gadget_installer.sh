@@ -25,7 +25,7 @@ install() {
     echo "dtoverlay=dwc2" | sudo tee -a /boot/config.txt # upstream driver which can do the OTG host/gadget flip dictated by OTG_SENSE.
     echo "dwc2" | sudo tee -a /etc/modules # loat at boot
     echo "libcomposite" | sudo tee -a /etc/modules
-    cp /home/BashBunny/scripts/init_usb_gadget.sh /usr/bin/ # USB gadget configFS
+    cp /home/BashBunny/scripts/usb_gadget/init_usb_gadget.sh /usr/bin/ # USB gadget configFS
     sudo chmod +x /usr/bin/init_usb_gadget.sh
     sed -i '/^exit 0/i /usr/bin/init_usb_gadget.sh' /etc/rc.local # libcomposite configuration
     /usr/bin/init_usb_gadget.sh 2>/dev/null
@@ -33,7 +33,7 @@ install() {
 
 
 uninstall () {
-    sudo chmod +x /home/BashBunny/scripts/remove_usb_gadget.sh && sudo ./home/BashBunny/scripts/remove_usb_gadget.sh
+    sudo chmod +x /home/BashBunny/scripts/usb_gadget/remove_usb_gadget.sh && sudo ./home/BashBunny/scripts/usb_gadget/remove_usb_gadget.sh
     rm -rf /usr/bin/init_usb_gadget.sh
     sed -i '/dtoverlay=dwc2/d' /boot/config.txt
     sed -i '/dwc2/d' /etc/modules
