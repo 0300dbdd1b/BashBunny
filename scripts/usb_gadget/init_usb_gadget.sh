@@ -17,7 +17,7 @@ modprobe libcomposite
 
 
 cd /sys/kernel/config/usb_gadget/
-mkdir -p g1
+sudo mkdir -p g1
 cd g1
 
 echo 0x1d6b > idVendor  # Linux Foundation
@@ -26,14 +26,14 @@ echo 0x0100 > bcdDevice # v1.0.0
 echo 0x0200 > bcdUSB    # USB2
 
 STRINGS_DIR="strings/0x409"
-mkdir -p "$STRINGS_DIR"
+sudo mkdir -p "$STRINGS_DIR"
 echo "6b65796d696d6570690" > "${STRINGS_DIR}/serialnumber"
 echo "Ruvik" > "${STRINGS_DIR}/manufacturer"
 echo "BashBunny" > "${STRINGS_DIR}/product"
 
 # Keyboard
 KEYBOARD_FUNCTIONS_DIR="functions/hid.keyboard"
-mkdir -p "$KEYBOARD_FUNCTIONS_DIR"
+sudo mkdir -p "$KEYBOARD_FUNCTIONS_DIR"
 echo 1 > "${KEYBOARD_FUNCTIONS_DIR}/protocol" # Keyboard
 echo 1 > "${KEYBOARD_FUNCTIONS_DIR}/subclass" # Boot interface subclass
 echo 8 > "${KEYBOARD_FUNCTIONS_DIR}/report_length"
@@ -72,11 +72,11 @@ D=$(mktemp)
   echo -ne \\x81\\x00       #   Input (Data,Array,Abs,No Wrap,Linear,Preferred State,No Null Position)
   echo -ne \\xC0            # End Collection
 } >> "$D"
-cp "$D" "${KEYBOARD_FUNCTIONS_DIR}/report_desc"
+sudo cp "$D" "${KEYBOARD_FUNCTIONS_DIR}/report_desc"
 
 # Mouse
 MOUSE_FUNCTIONS_DIR="functions/hid.mouse"
-mkdir -p "$MOUSE_FUNCTIONS_DIR"
+sudo mkdir -p "$MOUSE_FUNCTIONS_DIR"
 echo 0 > "${MOUSE_FUNCTIONS_DIR}/protocol"
 echo 0 > "${MOUSE_FUNCTIONS_DIR}/subclass"
 echo 7 > "${MOUSE_FUNCTIONS_DIR}/report_length"
@@ -121,11 +121,11 @@ echo -ne \\x95\\x01      #   REPORT_COUNT (1)
 echo -ne \\x81\\x06      #   INPUT (Data,Var,Rel)
 echo -ne \\xC0           # END_COLLECTION
 } >> "$D"
-cp "$D" "${MOUSE_FUNCTIONS_DIR}/report_desc"
+sudo cp "$D" "${MOUSE_FUNCTIONS_DIR}/report_desc"
 
 # Mass Storage
 STORAGE_FUNCTIONS_DIR="functions/mass_storage.0"
-mkdir -p "$STORAGE_FUNCTIONS_DIR"
+sudo mkdir -p "$STORAGE_FUNCTIONS_DIR"
 echo 1 > "${STORAGE_FUNCTIONS_DIR}/stall"
 echo 0 > "${STORAGE_FUNCTIONS_DIR}/lun.0/cdrom"
 echo 0 > "${STORAGE_FUNCTIONS_DIR}/lun.0/ro"
@@ -134,11 +134,11 @@ echo "/dev/mmcblk0" > "${STORAGE_FUNCTIONS_DIR}/lun.0/file"
 
 CONFIG_INDEX=1
 CONFIGS_DIR="configs/c.${CONFIG_INDEX}"
-mkdir -p "$CONFIGS_DIR"
+sudo mkdir -p "$CONFIGS_DIR"
 echo 250 > "${CONFIGS_DIR}/MaxPower"
 
 CONFIGS_STRINGS_DIR="${CONFIGS_DIR}/strings/0x409"
-mkdir -p "$CONFIGS_STRINGS_DIR"
+sudo mkdir -p "$CONFIGS_STRINGS_DIR"
 echo "Config ${CONFIG_INDEX}: ECM network" > "${CONFIGS_STRINGS_DIR}/configuration"
 
 ln -s "$KEYBOARD_FUNCTIONS_DIR" "${CONFIGS_DIR}/"
@@ -147,6 +147,6 @@ ln -s "$STORAGE_FUNCTIONS_DIR" "${CONFIGS_DIR}/"
 
 ls /sys/class/udc > UDC
 
-chmod 777 /dev/hidg0
-chmod 777 /dev/hidg1
-chmod 777 /dev/sda
+sudo chmod 777 /dev/hidg0
+sudo chmod 777 /dev/hidg1
+sudo chmod 777 /dev/sda

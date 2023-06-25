@@ -27,7 +27,7 @@ fi
 # Check if USB gadget is set, if not, launch the installer
 if [ ! -f "/usr/bin/init_usb_gadget.sh" ]; then
     echo "USB gadget is not set. Launching the installer..."
-    sudo chmod +x /home/BashBunny/scripts/usb_gadget/usb_gadget_installer.sh
+    sudo chmod 777 /home/BashBunny/scripts/usb_gadget/usb_gadget_installer.sh
     sudo /home/BashBunny/scripts/usb_gadget/usb_gadget_installer.sh
 else
     echo "USB gadget is already set."
@@ -41,7 +41,7 @@ fi
 # Check if the symlink /bin/DUCKY exists, if not, create it. 
 if [ ! -L "/home/BashBunny/bin/DUCKY" ]; then
     sudo ln -s "/home/BashBunny/srcs/DuckyScript/DuckyInterpreter.py" "/home/BashBunny/bin/DUCKY"
-    sudo chmod +x "/home/BashBunny/bin/DUCKY"
+    sudo chmod 777 "/home/BashBunny/bin/DUCKY"
     # Check if the alias DUCKY exists, if not, create it. 
     if [ ! grep -q "alias DUCKY" ~/.bashrc ]; then
         echo "alias DUCKY='/home/BashBunny/bin/DUCKY" >> ~/.bashrc
