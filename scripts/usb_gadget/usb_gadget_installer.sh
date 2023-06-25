@@ -33,7 +33,7 @@ install() {
 
 
 uninstall () {
-    sudo chmod +x /home/BashBunny/scripts/usb_gadget/remove_usb_gadget.sh && sudo ./home/BashBunny/scripts/usb_gadget/remove_usb_gadget.sh
+    sudo chmod +x /home/BashBunny/scripts/usb_gadget/remove_usb_gadget.sh && sudo /home/BashBunny/scripts/usb_gadget/remove_usb_gadget.sh
     rm -rf /usr/bin/init_usb_gadget.sh
     sed -i '/dtoverlay=dwc2/d' /boot/config.txt
     sed -i '/dwc2/d' /etc/modules
