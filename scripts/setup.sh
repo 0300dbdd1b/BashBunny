@@ -34,7 +34,7 @@ else
 fi
 
 # Check if /bin folder exists, if not, create it
-if [ ! -d "/home/BashBuny/bin" ]; then
+if [ ! -d "/home/BashBunny/bin" ]; then
     sudo mkdir /home/BashBunny/bin
 fi
 
@@ -45,6 +45,6 @@ if [ ! -L "/home/BashBunny/bin/DUCKY" ]; then
     # Check if the alias DUCKY exists, if not, create it. 
     if [ ! grep -q "alias DUCKY" ~/.bashrc ]; then
         echo "alias DUCKY='/home/BashBunny/bin/DUCKY" >> ~/.bashrc
-        bash
+        source ~/.bashrc
     fi
 fi
