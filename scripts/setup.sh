@@ -48,7 +48,7 @@ if [ ! -L "/home/BashBunny/bin/DUCKY" ]; then
 fi
 
 # Check if the alias DUCKY exists, if not, create it. 
-if ! grep -q "alias DUCKY" /home/$USERNAME/.bashrc ; then
-    echo "alias DUCKY='/home/BashBunny/srcs/DuckyScript/DuckyInterpreter.py'" >> /home/$USERNAME/.bashrc
+if ! grep -q "alias DUCKY" /home/$SUDO_USER/.bashrc ; then
+    echo "alias DUCKY='/home/BashBunny/srcs/DuckyScript/DuckyInterpreter.py'" >> /home/$SUDO_USER/.bashrc
     source ~/.bashrc
 fi
