@@ -40,11 +40,13 @@ fi
 
 # Check if the symlink /bin/DUCKY exists, if not, create it. 
 if [ ! -L "/home/BashBunny/bin/DUCKY" ]; then
+    sudo chmod 777 "/home/BashBunny/srcs/DuckyScript/DuckyInterpreter.py"
     sudo ln -s "/home/BashBunny/srcs/DuckyScript/DuckyInterpreter.py" "/home/BashBunny/bin/DUCKY"
     sudo chmod 777 "/home/BashBunny/bin/DUCKY"
-    # Check if the alias DUCKY exists, if not, create it. 
-    if [ ! grep -q "alias DUCKY" ~/.bashrc ]; then
-        echo "alias DUCKY='/home/BashBunny/bin/DUCKY" >> ~/.bashrc
-        source ~/.bashrc
-    fi
+fi
+
+# Check if the alias DUCKY exists, if not, create it. 
+if [ ! grep -q "alias DUCKY" ~/.bashrc ]; then
+    echo "alias DUCKY='/home/BashBunny/bin/DUCKY" >> ~/.bashrc
+    source ~/.bashrc
 fi
