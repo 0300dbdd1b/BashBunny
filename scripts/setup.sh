@@ -34,16 +34,16 @@ else
 fi
 
 # Check if /bin folder exists, if not, create it
-if [ ! -d "/home/BashBuny/bin"]; then
+if [ ! -d "/home/BashBuny/bin" ]; then
     sudo mkdir /home/BashBunny/bin
 fi
 
 # Check if the symlink /bin/DUCKY exists, if not, create it. 
-if [ ! -L "/home/BashBunny/bin/DUCKY"]; then
+if [ ! -L "/home/BashBunny/bin/DUCKY" ]; then
     sudo ln -s "/home/BashBunny/srcs/DuckyScript/DuckyInterpreter.py" "/home/BashBunny/bin/DUCKY"
     sudo chmod +x "/home/BashBunny/bin/DUCKY"
     # Check if the alias DUCKY exists, if not, create it. 
-    if ! grep -q "alias DUCKY" ~/.bashrc; then
+    if [ ! grep -q "alias DUCKY" ~/.bashrc ]; then
         echo "alias DUCKY='/home/BashBunny/bin/DUCKY" >> ~/.bashrc
         bash
     fi

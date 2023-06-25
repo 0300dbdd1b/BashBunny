@@ -74,7 +74,7 @@ class DuckyInterpreter:
 if __name__ == "__main__":
 	if len(sys.argv) == 2:
 		script_path = sys.argv[1]
-		keyboard = Keyboard(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'HID', 'keymaps', 'EN.json'))  # replace with your keymap file
+		keyboard = Keyboard("/home/BashBunny/srcs/HID/keymaps/EN.json")  # replace with your keymap file
 		mouse = Mouse()
 		interpreter = DuckyInterpreter(keyboard, mouse)
 		if not interpreter.execute(script_path):
@@ -82,7 +82,7 @@ if __name__ == "__main__":
 		else:
 			print("Script executed successfully.")
 	else:
-		keyboard = Keyboard(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'HID', 'keymaps', 'EN.json'))  # replace with your keymap file
+		keyboard = Keyboard("/home/BashBunny/srcs/HID/keymaps/EN.json")  # replace with your keymap file
 		mouse = Mouse()
 		interpreter = DuckyInterpreter(keyboard, mouse)
 		while True:
