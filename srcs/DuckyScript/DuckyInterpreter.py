@@ -2,7 +2,7 @@ import time
 import sys
 import os
 
-sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
+sys.path.append('/home/BashBunny/srcs/')
 from HID.Mouse import Mouse
 from HID.Keyboard import Keyboard
 
