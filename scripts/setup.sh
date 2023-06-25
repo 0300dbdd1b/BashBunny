@@ -32,9 +32,3 @@ if [ ! -f "/usr/bin/init_usb_gadget.sh" ]; then
 else
     echo "USB gadget is already set."
 fi
-
-if ! grep -Fxq "/home/BashBunny/scripts/boot_script.sh" /etc/rc.local
-then
-    sudo chmod +x /home/BashBunny/scripts/boot_script.sh
-	sudo sed -i "/^exit 0/i/home/BashBunny/scripts/boot_script.sh" /etc/rc.local
-fi
