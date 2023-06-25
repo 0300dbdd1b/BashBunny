@@ -1,5 +1,7 @@
 #!/bin/bash
 
+USERNAME=$(whoami)
+
 # Check if the script is run with sudo
 if [ "$EUID" -ne 0 ]; then
    echo "This script must be run with sudo. Try: sudo ./setup.sh"
@@ -46,7 +48,7 @@ if [ ! -L "/home/BashBunny/bin/DUCKY" ]; then
 fi
 
 # Check if the alias DUCKY exists, if not, create it. 
-if ! grep -q "alias DUCKY" $HOME/.bashrc ; then
-    echo "alias DUCKY='/home/BashBunny/srcs/DuckyScript/DuckyInterpreter.py'" >> $HOME/.bashrc
+if ! grep -q "alias DUCKY" /home/$USERNAME/.bashrc ; then
+    echo "alias DUCKY='/home/BashBunny/srcs/DuckyScript/DuckyInterpreter.py'" >> /home/$USERNAME/.bashrc
     source ~/.bashrc
 fi
