@@ -18,7 +18,7 @@ class DuckyInterpreter:
 			'REM': self.__rem__,
 			'//': self.__rem__,
 		}
-		self.special_keys = ['ENTER', 'SPACE', 'CTRL', 'ALT', 'TAB','SHIFT', 'WINDOWS', 'COMMAND', 'ESC', 'F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7', 'F8', 'F9', 'F10', 'F11', 'F12']
+		self.special_keys = ['ENTER', 'SPACE', 'CTRL', 'ALT', 'TAB','SHIFT', 'GUI', 'WINDOWS', 'COMMAND', 'ESC', 'F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7', 'F8', 'F9', 'F10', 'F11', 'F12']
 	def __type_string__(self, params):
 		return self.keyboard.write(' '.join(params))
 			
@@ -30,7 +30,7 @@ class DuckyInterpreter:
 		return True
 
 	def __handle_special_keys__(self, command, params):
-		if command == 'WINDOWS' or command == 'COMMAND':
+		if command == 'WINDOWS' or command == 'COMMAND' or command == 'GUI':
 			if params:
 				return self.keyboard.inject_custom_keystroke('META', params[0])
 			else:
@@ -87,7 +87,7 @@ if __name__ == "__main__":
 		interpreter = DuckyInterpreter(keyboard, mouse)
 		while True:
 			line = input(">> ")
-			if line == 'EXIT':
+			if line == 'EXIT' or line == 'exit':
 				break
 			interpreter.__execute_line__(line)
 
