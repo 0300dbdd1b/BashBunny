@@ -6,7 +6,13 @@ modprobe libcomposite
 
 if [ "$1" = "enable" ]; then
 	if [ ! -d /sys/kernel/config/usb_gadget/g1/functions/hid.keyboard ]; then
-   		# Create the HID function for the keyboard
+		# Ensure the configuration directory exists
+        mkdir -p /sys/kernel/config/usb_gadget/g1/configs/c.1/
+		# Disable the gadget if it is currently enabled
+		if [ -n "$(cat /sys/kernel/config/usb_gadget/g1/UDC)" ]; then
+            echo "" > /sys/kernel/config/usb_gadget/g1/UDC
+        fi
+		# Create the HID function for the keyboard
     	mkdir -p /sys/kernel/config/usb_gadget/g1/functions/hid.keyboard
     	echo 1 > /sys/kernel/config/usb_gadget/g1/functions/hid.keyboard/protocol
     	echo 1 > /sys/kernel/config/usb_gadget/g1/functions/hid.keyboard/subclass
