@@ -6,6 +6,14 @@ modprobe libcomposite
 
 if [ "$1" = "enable" ]; then
 	if [ ! -d /sys/kernel/config/usb_gadget/g1/functions/hid.keyboard ]; then
+		# Create the gadget
+        mkdir -p /sys/kernel/config/usb_gadget/g1
+        echo 0x1d6b > /sys/kernel/config/usb_gadget/g1/idVendor  # Linux Foundation
+        echo 0x0104 > /sys/kernel/config/usb_gadget/g1/idProduct # Multifunction Composite Gadget
+        mkdir -p /sys/kernel/config/usb_gadget/g1/strings/0x409
+        echo "fedcba9876543210" > /sys/kernel/config/usb_gadget/g1/strings/0x409/serialnumber
+        echo "Tutor" > /sys/kernel/config/usb_gadget/g1/strings/0x409/manufacturer
+        echo "HID Gadget" > /sys/kernel/config/usb_gadget/g1/strings/0x409/product
 		# Ensure the configuration directory exists
         mkdir -p /sys/kernel/config/usb_gadget/g1/configs/c.1/
 		# Disable the gadget if it is currently enabled
