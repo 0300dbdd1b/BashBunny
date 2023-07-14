@@ -1,123 +1,49 @@
 #!/bin/bash
 # hid.sh
 
+
 # Load the libcomposite module
 modprobe libcomposite
 
 if [ "$1" = "enable" ]; then
-	if [ ! -d /sys/kernel/config/usb_gadget/g1/functions/hid.keyboard ]; then
-		# Create the gadget
-        mkdir -p /sys/kernel/config/usb_gadget/g1
-        echo 0x1d6b > /sys/kernel/config/usb_gadget/g1/idVendor  # Linux Foundation
-        echo 0x0104 > /sys/kernel/config/usb_gadget/g1/idProduct # Multifunction Composite Gadget
-        mkdir -p /sys/kernel/config/usb_gadget/g1/strings/0x409
-        echo "fedcba9876543210" > /sys/kernel/config/usb_gadget/g1/strings/0x409/serialnumber
-        echo "Tutor" > /sys/kernel/config/usb_gadget/g1/strings/0x409/manufacturer
-        echo "HID Gadget" > /sys/kernel/config/usb_gadget/g1/strings/0x409/product
-		# Ensure the configuration directory exists
-        mkdir -p /sys/kernel/config/usb_gadget/g1/configs/c.1/
-		# Disable the gadget if it is currently enabled
-		if [ -n "$(cat /sys/kernel/config/usb_gadget/g1/UDC)" ]; then
-            echo "" > /sys/kernel/config/usb_gadget/g1/UDC
-        fi
-		# Create the HID function for the keyboard
-    	mkdir -p /sys/kernel/config/usb_gadget/g1/functions/hid.keyboard
-    	echo 1 > /sys/kernel/config/usb_gadget/g1/functions/hid.keyboard/protocol
-    	echo 1 > /sys/kernel/config/usb_gadget/g1/functions/hid.keyboard/subclass
-    	echo 8 > /sys/kernel/config/usb_gadget/g1/functions/hid.keyboard/report_length
+	mkdir -p /sys/kernel/config/usb_gadget/bad_bunny/
+	cd /sys/kernel/config/usb_gadget/bad_bunny/
+	echo 0x1d6b > idVendor # Linux Foundation
+	echo 0x0104 > idProduct # Multifunction Composite Gadget
+	echo 0x0100 > bcdDevice # v1.0.0
+	echo 0x0200 > bcdUSB # USB2
+	mkdir -p strings/0x409
+	echo "deadbeef01234567890" > strings/0x409/serialnumber
+	echo "BadPi" > strings/0x409/manufacturer
+	echo "Generic USB" > strings/0x409/product
+	
+	mkdir -p configs/c.1/strings/0x409
+	echo "Config 1: ECM network" > configs/c.1/strings/0x409/configuration 
+	echo 250 > configs/c.1/MaxPower 
 
-    	# Write the report descriptor for the keyboard
-    	{
-        	echo -ne \\x05\\x01  # Usage Page (Generic Desktop)
-        	echo -ne \\x09\\x06  # Usage (Keyboard)
-        	echo -ne \\xA1\\x01  # Collection (Application)
-        	echo -ne \\x05\\x07  # Usage Page (Key Codes)
-        	echo -ne \\x19\\xE0  # Usage Minimum (224)
-        	echo -ne \\x29\\xE7  # Usage Maximum (231)
-        	echo -ne \\x15\\x00  # Logical Minimum (0)
-        	echo -ne \\x25\\x01  # Logical Maximum (1)
-        	echo -ne \\x75\\x01  # Report Size (1)
-        	echo -ne \\x95\\x08  # Report Count (8)
-        	echo -ne \\x81\\x02  # Input (Data, Variable, Absolute)
-        	echo -ne \\x95\\x01  # Report Count (1)
-        	echo -ne \\x75\\x08  # Report Size (8)
-        	echo -ne \\x81\\x03  # Input (Constant) ;5 bit padding
-        	echo -ne \\x95\\x05  # Report Count (5)
-        	echo -ne \\x75\\x01  # Report Size (1)
-        	echo -ne \\x05\\x08  # Usage Page (LEDs)
-        	echo -ne \\x19\\x01  # Usage Minimum (1)
-        	echo -ne \\x29\\x05  # Usage Maximum (5)
-        	echo -ne \\x91\\x02  # Output (Data, Variable, Absolute)
-        	echo -ne \\x95\\x01  # Report Count (1)
-        	echo -ne \\x75\\x03  # Report Size (3)
-        	echo -ne \\x91\\x03  # Output (Constant) ;3 bit padding
-        	echo -ne \\x95\\x06  # Report Count (6)
-        	echo -ne \\x75\\x08  # Report Size (8)
-        	echo -ne \\x15\\x00  # Logical Minimum (0)
-        	echo -ne \\x25\\x65  # Logical Maximum (101)
-        	echo -ne \\x05\\x07  # Usage Page (Key Codes)
-        	echo -ne \\x19\\x00  # Usage Minimum (0)
-        	echo -ne \\x29\\x65  # Usage Maximum (101)
-        	echo -ne \\x81\\x00  # Input (Data, Array)
-        	echo -ne \\xC0       # End Collection
-    	} > /sys/kernel/config/usb_gadget/g1/functions/hid.keyboard/report_desc
-    	# Create the HID function for the mouse
-    	mkdir -p /sys/kernel/config/usb_gadget/g1/functions/hid.mouse
-    	echo 1 > /sys/kernel/config/usb_gadget/g1/functions/hid.mouse/protocol
-    	echo 1 > /sys/kernel/config/usb_gadget/g1/functions/hid.mouse/subclass
-    	echo 8 > /sys/kernel/config/usb_gadget/g1/functions/hid.mouse/report_length
+	mkdir -p functions/hid.keyboard
+	echo 1 > functions/hid.keyboard/protocol
+	echo 1 > functions/hid.keyboard/subclass
+	echo 8 > functions/hid.keyboard/report_length
+	echo -ne \\x05\\x01\\x09\\x06\\xa1\\x01\\x05\\x07\\x19\\xe0\\x29\\xe7\\x15\\x00\\x25\\x01\\x75\\x01\\x95\\x08\\x81\\x02\\x95\\x01\\x75\\x08\\x81\\x03\\x95\\x05\\x75\\x01\\x05\\x08\\x19\\x01\\x29\\x05\\x91\\x02\\x95\\x01\\x75\\x03\\x91\\x03\\x95\\x06\\x75\\x08\\x15\\x00\\x25\\x65\\x05\\x07\\x19\\x00\\x29\\x65\\x81\\x00\\xc0 > functions/hid.keyboard/report_desc
+	ln -s functions/hid.keyboard configs/c.1/
 
-    	# Write the report descriptor for the mouse
-    	{
-        	echo -ne \\x05\\x01  # Usage Page (Generic Desktop)
-        	echo -ne \\x09\\x02  # Usage (Mouse)
-        	echo -ne \\xA1\\x01  # Collection (Application)
-        	echo -ne \\x09\\x01  # Usage (Pointer)
-        	echo -ne \\xA1\\x00  # Collection (Physical)
-        	echo -ne \\x05\\x09  # Usage Page (Button)
-        	echo -ne \\x19\\x01  # Usage Minimum (1)
-        	echo -ne \\x29\\x03  # Usage Maximum (3)
-        	echo -ne \\x15\\x00  # Logical Minimum (0)
-        	echo -ne \\x25\\x01  # Logical Maximum (1)
-        	echo -ne \\x95\\x03  # Report Count (3)
-        	echo -ne \\x75\\x01  # Report Size (1)
-        	echo -ne \\x81\\x02  # Input (Data, Variable, Absolute)
-        	echo -ne \\x95\\x01  # Report Count (1)
-        	echo -ne \\x75\\x05  # Report Size (5)
-        	echo -ne \\x81\\x01  # Input (Constant) ;5 bit padding
-        	echo -ne \\x05\\x01  # Usage Page (Generic Desktop)
-        	echo -ne \\x09\\x30  # Usage (X)
-        	echo -ne \\x09\\x31  # Usage (Y)
-        	echo -ne \\x15\\x81  # Logical Minimum (-127)
-        	echo -ne \\x25\\x7F  # Logical Maximum (127)
-        	echo -ne \\x75\\x08  # Report Size (8)
-        	echo -ne \\x95\\x02  # Report Count (2)
-        	echo -ne \\x81\\x06  # Input (Data, Variable, Relative)
-        	echo -ne \\xC0       # End Collection
-        	echo -ne \\xC0       # End Collection
-    	} > /sys/kernel/config/usb_gadget/g1/functions/hid.mouse/report_desc
+	mkdir -p functions/hid.mouse
+    echo 1 > functions/hid.mouse/protocol
+    echo 1 > functions/hid.mouse/subclass
+    echo 3 > functions/hid.mouse/report_length
+    echo -ne \\x05\\x01\\x09\\x02\\xA1\\x01\\x09\\x01\\xA1\\x00\\x05\\x09\\x19\\x01\\x29\\x03\\x15\\x00\\x25\\x01\\x95\\x03\\x75\\x01\\x81\\x02\\x95\\x01\\x75\\x05\\x81\\x03\\x05\\x01\\x09\\x30\\x09\\x31\\x15\\x81\\x25\\x7F\\x75\\x08\\x95\\x02\\x81\\x06\\xC0\\xC0 > functions/hid.mouse/report_desc
+    ln -s functions/hid.mouse configs/c.1/
 
-   		# Add the HID functions to the configuration
-    	ln -s /sys/kernel/config/usb_gadget/g1/functions/hid.keyboard /sys/kernel/config/usb_gadget/g1/configs/c.1/
-    	ln -s /sys/kernel/config/usb_gadget/g1/functions/hid.mouse /sys/kernel/config/usb_gadget/g1/configs/c.1/
-
-    	# Enable the gadget
-    	echo "20980000.usb" > /sys/kernel/config/usb_gadget/g1/UDC
-	else
-		echo "hid module is already enabled"
-	fi
+	ls /sys/class/udc > UDC
 
 elif [ "$1" = "disable" ]; then
-    # Disable the gadget
-    echo "" > /sys/kernel/config/usb_gadget/g1/UDC
-
-    # Remove the HID functions from the configuration
-    rm /sys/kernel/config/usb_gadget/g1/configs/c.1/hid.keyboard
-    rm /sys/kernel/config/usb_gadget/g1/configs/c.1/hid.mouse
-
-    # Delete the HID functions
-    rmdir /sys/kernel/config/usb_gadget/g1/functions/hid.keyboard
-    rmdir /sys/kernel/config/usb_gadget/g1/functions/hid.mouse
+	cd /sys/kernel/config/usb_gadget/bad_bunny/
+    echo "" > UDC
+    rm configs/c.1/hid.keyboard
+    rm configs/c.1/hid.mouse
+    rmdir functions/hid.keyboard
+    rmdir functions/hid.mouse
 else
     echo "Usage: $0 {enable|disable}"
     exit 1

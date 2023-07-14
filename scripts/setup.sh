@@ -24,6 +24,12 @@ else
     echo "git is already installed."
 fi
 
+# Kernel Stuff
+sudo echo "dtoverlay=dwc2" | sudo tee -a /boot/config.txt
+sudo echo "dwc2" | sudo tee -a /etc/modules
+sudo echo "libcomposite" | sudo tee -a /etc/modules
+
+sudo chmod 777 /home/Bashbunny/scripts/usb_gadget/hid.sh
 
 # Check if /bin folder exists, if not, create it
 if [ ! -d "/home/BashBunny/bin" ]; then
